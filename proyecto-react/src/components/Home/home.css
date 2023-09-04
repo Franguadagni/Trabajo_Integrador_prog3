@@ -1,0 +1,14 @@
+.seriespopulares{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+.tipodepalabra2{
+    text-align: center;
+    font-size: 40px;
+    background-color: rgba(0, 0, 0, 0.315);
+    padding: 15px;
+}
