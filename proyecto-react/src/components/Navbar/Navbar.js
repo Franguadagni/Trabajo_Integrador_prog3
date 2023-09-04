@@ -5,7 +5,7 @@ function Navbar(){
         <header>
         <nav className="nav1">
         <div className="logoynav">
-            <a  href="./index.html">
+            <a  href="/">
                 <img className="logo" src="/img/1.jpg" alt="logo" />
             </a>
             <div className="nav2">
@@ -14,10 +14,10 @@ function Navbar(){
                         <Link to='' className="nave">Favoritos</Link>
                     </li>
                     <li className="item dos">
-                    <Link to='' className="nave">Populares</Link> 
+                    <Link to='/populares' className="nave">Populares</Link> 
                     </li>
                     <li className="item dos">
-                    <Link to='' className="nave">+Valoradas</Link> 
+                    <Link to='/valoradas' className="nave">+Valoradas</Link> 
                     </li>    
                 </ul>
             </div>

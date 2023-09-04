@@ -6,7 +6,14 @@ class Tarjeta extends Component{
     constructor(props){
         super(props)
         this.state={
+            show: false,
+            descripcion: props.datosPeli.overview
         }
+    }
+    handleshow(){
+        this.setState({
+            show:!this.state.show
+        })
     } 
     render(){
         console.log(this.props);
@@ -16,9 +23,9 @@ class Tarjeta extends Component{
                 <div className="tituloaño">
                     <p className="titulo">{this.props.datosPeli.title}</p>
                     <p className="año">{this.props.datosPeli.release_date} </p>
-                    <p className="descripcion"> </p>
-                    <p className="verMas"> </p>
-                    <Link to='' className="detalle"> Ir a Detalle </Link> 
+                    <p className="verMas">{this.state.show ? this.state.descripcion : ''} </p>
+                    <p onClick={()=> this.handleshow()}>{this.state.show ? 'Ver menos' : 'Ver más'}</p>
+                    <Link to= {`/detalle/${this.props.datosPeli.id}`} className="detalle"> Ir a Detalle </Link> 
                 </div>
             </article>
         )
