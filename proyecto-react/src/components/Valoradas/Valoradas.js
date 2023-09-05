@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Tarjeta from '../Tarjeta/Tarjeta';
-
+import "./valoradas.css";
 class Valoradas extends Component{
     constructor(){
         super()
@@ -24,6 +24,7 @@ class Valoradas extends Component{
         return(
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+            <button className="boton" > Traer más </button>
             <section className="pelisvaloradas">
                 {
                     this.state.pelisTopRated.map(

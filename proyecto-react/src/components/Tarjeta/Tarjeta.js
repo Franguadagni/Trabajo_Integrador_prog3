@@ -18,6 +18,7 @@ class Tarjeta extends Component{
     render(){
         console.log(this.props);
         return (
+            // <Link to= {`/detalle/id/${this.props.datosPeli.id}`}>
             <article className="peli">
                 <img className="imagenPS"  src={`https://image.tmdb.org/t/p/w500${this.props.datosPeli.poster_path}`} alt="imagen" />
                 <div className="tituloaño">
@@ -25,9 +26,10 @@ class Tarjeta extends Component{
                     <p className="año">{this.props.datosPeli.release_date} </p>
                     <p className="verMas">{this.state.show ? this.state.descripcion : ''} </p>
                     <p onClick={()=> this.handleshow()}>{this.state.show ? 'Ver menos' : 'Ver más'}</p>
-                    <Link to= {`/detalle/${this.props.datosPeli.id}`} className="detalle"> Ir a Detalle </Link> 
+                    <Link to= {`/detalle/id/${this.props.datosPeli.id}`} className="detalle"> Ir a Detalle </Link> 
                 </div>
             </article>
+            // </Link> 
         )
     }
 }
