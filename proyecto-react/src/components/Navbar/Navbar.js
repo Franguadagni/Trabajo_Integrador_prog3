@@ -1,4 +1,5 @@
 import React from "react";
+import Buscar from "../Buscar/Buscar";
 import {Link} from 'react-router-dom';
 function Navbar(){
     return (
@@ -22,14 +23,7 @@ function Navbar(){
                 </ul>
             </div>
         </div>
-        <div className="formDeBusqueda">
-            <form className="busqueda" action="" method="get">
-                <input className="search" type="text" name="Search" placeholder="¿Qué queres ver?" value=""/> 
-                <button className="bottonsearch" type="submit">Search</button>
-            </form>
-            <p className="alert"></p> 
-        </div>
-       
+        <Buscar/>
     </nav>
     </header> 
     )
