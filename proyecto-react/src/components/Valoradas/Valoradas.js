@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Tarjeta from '../Tarjeta/Tarjeta';
 import "./valoradas.css";
+import Filtro from '../Filtro/Filtro';
+
 class Valoradas extends Component{
     constructor(){
         super()
@@ -17,6 +19,14 @@ class Valoradas extends Component{
             }))
             .catch()
     }
+    filtrarPeliculas(textoAFiltrar){
+        let peliculasFiltradas = this.state.pelisTopRated.filter(function(unaPelicula){
+            return unaPelicula.title.includes(textoAFiltrar)
+        })
+        this.setState({
+            pelisTopRated: peliculasFiltradas
+        })
+    }
     
     
     render(){
@@ -24,6 +34,7 @@ class Valoradas extends Component{
         return(
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+            <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
             <button className="boton" > Traer más </button>
             <section className="pelisvaloradas">
                 {

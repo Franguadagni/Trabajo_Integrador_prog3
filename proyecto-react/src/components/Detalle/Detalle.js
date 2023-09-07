@@ -6,6 +6,7 @@ class Detalle extends Component{
         super(props)
         this.state={
             detallePeli:[], //aparecer movies
+          
         }
     }
     componentDidMount(){
@@ -16,12 +17,13 @@ class Detalle extends Component{
                 detallePeli: data,
             }))
             .catch()
+        //Tenemos que traer los generos
     }
 
     render(){    
         return(
            <section className='infopelicula'>
-            <TarjetaDetalle detallePeli={this.state.detallePeli} />
+            <TarjetaDetalle detallePeli={this.state.detallePeli} genero={this.state.genero} />
            </section>
         )
     }

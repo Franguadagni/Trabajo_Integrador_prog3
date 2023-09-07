@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import Tarjeta from '../Tarjeta/Tarjeta';
 import "./populares.css";
+import Filtro from '../Filtro/Filtro';
+
 class Populares extends Component{
     constructor(){
         super()
@@ -17,16 +19,23 @@ class Populares extends Component{
             }))
             .catch()
     }
-    
+    filtrarPeliculas(textoAFiltrar){
+        let peliculasFiltradas = this.state.pelisPopulares.filter(function(unaPelicula){
+            return unaPelicula.title.includes(textoAFiltrar)
+        })
+        this.setState({
+            pelisPopulares: peliculasFiltradas
+        })
+    }
     
     render(){
         console.log(this.setState.pelisPopulares)
         return(
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas Populares</h2>
+            <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
             <button className="boton" > Traer más </button>
             <section className="seriespopulares">
-            
                 {
                     this.state.pelisPopulares.map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
