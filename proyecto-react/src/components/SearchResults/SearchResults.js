@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Tarjeta from '../Tarjeta/Tarjeta';
+import "./searchresults.css";
 class SearchResults extends Component{
     constructor(props){
         super(props)

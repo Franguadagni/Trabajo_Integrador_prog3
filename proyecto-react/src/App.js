@@ -7,6 +7,8 @@ import Valoradas from "./components/Valoradas/Valoradas";
 import Populares from "./components/Populares/Populares";
 import Detalle from "./components/Detalle/Detalle";
 import SearchResults from "./components/SearchResults/SearchResults";
+import Favoritos from "./components/Favoritos/Favoritos";
+import NotFound from "./components/NotFound/notFound";
 function App() {
   return (
      <React.Fragment>
@@ -18,6 +20,8 @@ function App() {
           <Route path="/populares" component={Populares}></Route>
           <Route path="/detalle/id/:id" component={Detalle}></Route>
           <Route path="/search-results/:buscado" component={SearchResults}></Route>
+          <Route path="/favoritos" component={Favoritos}></Route>
+          <Route path="" component={NotFound}></Route>
         </Switch>
       </main>
       <Footer />

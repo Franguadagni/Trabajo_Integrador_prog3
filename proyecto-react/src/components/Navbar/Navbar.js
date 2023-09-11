@@ -12,7 +12,7 @@ function Navbar(){
             <div className="nav2">
                 <ul className="nav3">
                     <li className="item uno " >
-                        <Link to='' className="nave">Favoritos</Link>
+                        <Link to='/favoritos' className="nave">Favoritos</Link>
                     </li>
                     <li className="item dos">
                     <Link to='/populares' className="nave">Populares</Link> 
