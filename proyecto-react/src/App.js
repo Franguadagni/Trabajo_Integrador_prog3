@@ -17,7 +17,7 @@ function App() {
           <Route path="/valoradas" component={Valoradas}></Route>
           <Route path="/populares" component={Populares}></Route>
           <Route path="/detalle/id/:id" component={Detalle}></Route>
-          <Route path="/search-results/buscado/:buscado" component={SearchResults}></Route>
+          <Route path="/search-results/:buscado" component={SearchResults}></Route>
         </Switch>
       </main>
       <Footer />

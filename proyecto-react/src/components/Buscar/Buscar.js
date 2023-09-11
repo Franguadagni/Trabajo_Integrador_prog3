@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 class Buscar extends Component{
 
@@ -28,9 +29,9 @@ class Buscar extends Component{
         // console.log(this.props);
         return(
               <div className="formDeBusqueda">
-              <form className="busqueda" action={`/search-results/buscado/${this.state.textoDelInput}`} method="GET" onSubmit={(event) => this.controlarEnvio(event)}>
+              <form className="busqueda"  method="GET" onSubmit={(event) => this.controlarEnvio(event)}>
                   <input className="search" type="text" name="Search" placeholder="¿Qué queres ver?" onChange={(e)=>this.guardarDatosDelInput(e)} value={this.state.textoDelInput}/> 
-                  <button className="bottonsearch" type="submit">Search</button>
+                  <Link to ={`/search-results/${this.state.textoDelInput}`}> <button className="bottonsearch" type="submit">Search</button> </Link>
               </form>
           </div>
         )
