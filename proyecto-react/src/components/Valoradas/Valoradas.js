@@ -12,7 +12,7 @@ class Valoradas extends Component{
     }
     componentDidMount(){
         //Buscamos datos
-        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e")
+        fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e&page="+this.state.page)
             .then( res => res.json())
             .then( data => this.setState({
                 pelisTopRated: data.results,
@@ -27,6 +27,15 @@ class Valoradas extends Component{
             pelisTopRated: peliculasFiltradas
         })
     }
+    traerMas(){
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e&page="+this.state.page)
+            .then( res => res.json())
+            .then( data => this.setState({
+                pelisTopRated: this.state.pelisTopRated.concat(data.results),
+                page:this.state.page+1
+            }))
+            .catch( error => console.log(error) )
+    }
     
     
     render(){
@@ -35,7 +44,7 @@ class Valoradas extends Component{
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
             <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
-            <button className="boton" > Traer más </button>
+            <button  onClick={()=>this.traerMas(this.state.pelisTopRated)}className="boton" > Traer más </button>
             <section className="pelisvaloradas">
                 {
                     this.state.pelisTopRated.map(
