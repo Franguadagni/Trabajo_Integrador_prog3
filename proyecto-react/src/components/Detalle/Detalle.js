@@ -6,7 +6,7 @@ class Detalle extends Component{
         super(props)
         this.state={
             detallePeli:[], //aparecer movies
-          
+            generos:[]
         }
     }
     componentDidMount(){
@@ -16,14 +16,21 @@ class Detalle extends Component{
             .then( data => this.setState({
                 detallePeli: data,
             }))
-            .catch( error => console.log(error) )
-        //Tenemos que traer los generos
+            .catch( error => console.log(error))
+
+        fetch(``)
+            .then( res => res.json())
+            .then( data => this.setState({
+                generos: data,
+            }))
+            .catch( error => console.log(error))
+        
     }
 
     render(){    
         return(
            <section className='infopelicula'>
-            <TarjetaDetalle detallePeli={this.state.detallePeli} genero={this.state.genero} />
+            <TarjetaDetalle detallePeli={this.state.detallePeli} generos={this.state.generos}/>
            </section>
         )
     }
