@@ -8,15 +8,17 @@ class Populares extends Component{
         super()
         this.state={
             pelisPopulares:[], //aparecer movies
-            botonApretado: false
+            botonApretado: false,
+            page:1
         }
     }
     componentDidMount(){
         //Buscamos datos
-        fetch("https://api.themoviedb.org/3/movie/popular?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e")
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e&page="+this.state.page)
             .then( res => res.json())
             .then( data => this.setState({
                 pelisPopulares: data.results,
+                page:this.state.page+1
             }))
             .catch( error => console.log(error) )
     }
@@ -29,7 +31,13 @@ class Populares extends Component{
         })
     }
     traerMas(){
-
+        fetch("https://api.themoviedb.org/3/movie/popular?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e&page="+this.state.page)
+            .then( res => res.json())
+            .then( data => this.setState({
+                pelisPopulares: this.state.pelisPopulares.concat(data.results),
+                page:this.state.page+1
+            }))
+            .catch( error => console.log(error) )
     }
     
     render(){
@@ -41,7 +49,7 @@ class Populares extends Component{
             <button  onClick={()=>this.traerMas(this.state.pelisPopulares)} className="boton" > Traer más </button>
             <section className="seriespopulares">
                 {  
-                    this.state.pelisPopulares.slice(0,12).map(
+                    this.state.pelisPopulares.map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
                     )
                 }

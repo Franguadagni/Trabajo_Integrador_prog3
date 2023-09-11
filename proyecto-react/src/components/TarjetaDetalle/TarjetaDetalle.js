@@ -84,4 +84,4 @@ class TarjetaDetalle extends Component{
     }
 
 }
-export default TarjetaDetalle
+export default TarjetaDetalle;
