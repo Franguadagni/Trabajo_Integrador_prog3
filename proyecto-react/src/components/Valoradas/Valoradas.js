@@ -17,7 +17,7 @@ class Valoradas extends Component{
             .then( data => this.setState({
                 pelisTopRated: data.results,
             }))
-            .catch()
+            .catch( error => console.log(error) )
     }
     filtrarPeliculas(textoAFiltrar){
         let peliculasFiltradas = this.state.pelisTopRated.filter(function(unaPelicula){

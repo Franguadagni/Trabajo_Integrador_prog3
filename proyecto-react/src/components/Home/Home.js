@@ -1,55 +1,55 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import "./home.css";
 import Tarjeta from '../Tarjeta/Tarjeta';
 
-class Home extends Component{
-    constructor(){
+class Home extends Component {
+    constructor() {
         super()
-        this.state={
-            pelisPopulares:[], //aparecer movies
+        this.state = {
+            pelisPopulares: [], //aparecer movies
             pelisTopRated: [],
         }
     }
-    componentDidMount(){
+    componentDidMount() {
         //Buscamos datos
         fetch("https://api.themoviedb.org/3/movie/popular?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e")
-            .then( res => res.json())
-            .then( data => this.setState({
+            .then(res => res.json())
+            .then(data => this.setState({
                 pelisPopulares: data.results,
             }))
-            .catch()
+            .catch(error => console.log(error))
 
         fetch("https://api.themoviedb.org/3/movie/top_rated?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e")
-            .then( res => res.json())
-            .then( data => this.setState({
+            .then(res => res.json())
+            .then(data => this.setState({
                 pelisTopRated: data.results,
             }))
-            .catch()
+            .catch(error => console.log(error))
     }
-    
-    
-    render(){
+
+
+    render() {
         console.log(this.setState.pelisPopulares)
         console.log(this.setState.pelisTopRated)
-        return(
+        return (
             <React.Fragment>
-            <h2 className="tipodepalabra2">Peliculas Populares</h2>
-            <section className="seriespopulares">
-            
-                {
-                    this.state.pelisPopulares.slice(0,6).map(
-                        (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
-                    )
-                }
-            </section>
-            <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
-            <section className="pelisvaloradas">
-                {
-                    this.state.pelisTopRated.slice(0,6).map(
-                        (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
-                    )
-                }
-            </section>
+                <h2 className="tipodepalabra2">Peliculas Populares</h2>
+                <section className="seriespopulares">
+
+                    {
+                        this.state.pelisPopulares.slice(0, 6).map(
+                            (peli, idx) => <Tarjeta key={peli + idx} datosPeli={peli} />
+                        )
+                    }
+                </section>
+                <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+                <section className="pelisvaloradas">
+                    {
+                        this.state.pelisTopRated.slice(0, 6).map(
+                            (peli, idx) => <Tarjeta key={peli + idx} datosPeli={peli} />
+                        )
+                    }
+                </section>
             </React.Fragment>
         )
     }

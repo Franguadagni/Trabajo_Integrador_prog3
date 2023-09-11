@@ -8,6 +8,7 @@ class Populares extends Component{
         super()
         this.state={
             pelisPopulares:[], //aparecer movies
+            botonApretado: false
         }
     }
     componentDidMount(){
@@ -17,7 +18,7 @@ class Populares extends Component{
             .then( data => this.setState({
                 pelisPopulares: data.results,
             }))
-            .catch()
+            .catch( error => console.log(error) )
     }
     filtrarPeliculas(textoAFiltrar){
         let peliculasFiltradas = this.state.pelisPopulares.filter(function(unaPelicula){
@@ -27,6 +28,9 @@ class Populares extends Component{
             pelisPopulares: peliculasFiltradas
         })
     }
+    traerMas(){
+
+    }
     
     render(){
         console.log(this.setState.pelisPopulares)
@@ -34,10 +38,10 @@ class Populares extends Component{
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas Populares</h2>
             <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
-            <button className="boton" > Traer más </button>
+            <button  onClick={()=>this.traerMas(this.state.pelisPopulares)} className="boton" > Traer más </button>
             <section className="seriespopulares">
-                {
-                    this.state.pelisPopulares.map(
+                {  
+                    this.state.pelisPopulares.slice(0,12).map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
                     )
                 }

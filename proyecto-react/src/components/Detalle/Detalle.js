@@ -16,7 +16,7 @@ class Detalle extends Component{
             .then( data => this.setState({
                 detallePeli: data,
             }))
-            .catch()
+            .catch( error => console.log(error) )
         //Tenemos que traer los generos
     }
 

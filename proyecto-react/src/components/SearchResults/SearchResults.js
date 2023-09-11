@@ -16,7 +16,7 @@ class SearchResults extends Component{
             .then( data => this.setState({
                 peliBuscada: data.results,
             }))
-            .catch()
+            .catch( error => console.log(error) )
     }
     render(){    
         return(

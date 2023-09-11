@@ -20,7 +20,7 @@ class Favoritos extends Component{
             let pasarAArray = JSON.parse(recuperoStoragePelis);
             favoritos = pasarAArray
         }
-        favoritos.map ((id) => {
+        favoritos.map((id) => {
             fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=5d8d9a4eaf9e1d9b0b7f27344d895a3e&language=es-ES`)
             .then(response => response.json())
             .then( favs => { 
