@@ -34,24 +34,31 @@ class Home extends Component {
         return (
             <React.Fragment>
                 <h2 className="tipodepalabra2">Peliculas Populares</h2>
-                <section className="seriespopulares">
-
-                    {
+                {
+                    this.state.pelisPopulares.length >0?
+                    <section className="seriespopulares">
+                        {
                         this.state.pelisPopulares.slice(0, 6).map(
                             (peli, idx) => <Tarjeta key={peli + idx} datosPeli={peli} />
                         )
                     }
-                </section>
-                <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+                </section>:
+                <h3> Loading...</h3>
+            }
+            <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+            {
+                this.state.pelisTopRated.length >0?
                 <section className="pelisvaloradas">
                     {
                         this.state.pelisTopRated.slice(0, 6).map(
                             (peli, idx) => <Tarjeta key={peli + idx} datosPeli={peli} />
                         )
                     }
-                </section>
+                </section>:
+                <h3> Loading...</h3>
+            }   
             </React.Fragment>
-        )
+                )
     }
 }
 

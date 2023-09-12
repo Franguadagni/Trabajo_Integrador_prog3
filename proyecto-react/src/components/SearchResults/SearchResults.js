@@ -23,14 +23,22 @@ class SearchResults extends Component{
           <React.Fragment>
             <h2 class="titulohp">Resultados de Busqueda</h2> 
             <div class="fondodrama">  
-                <section class="searchresults">
+            {
+                this.state.peliBuscada.length >0?
+                
+            <section class="searchresults">
+                
                 {
                     this.state.peliBuscada.slice(0,12).map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
                     )
                 }
-                </section>
+                
+            </section>:
+            <h3> Loading...</h3> }
             </div>
+
+            
           </React.Fragment>
         )
     }

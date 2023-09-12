@@ -46,14 +46,19 @@ class Populares extends Component{
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas Populares</h2>
             <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+            {
+                this.state.pelisPopulares.length >0?
             <section className="seriespopulares">
                 {  
                     this.state.pelisPopulares.map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
                     )
                 }
-            </section>
-            <button  onClick={()=>this.traerMas(this.state.pelisPopulares)} className="boton" > Traer más </button>
+                <button  onClick={()=>this.traerMas(this.state.pelisPopulares)} className="boton" > Traer más </button>
+            </section>:
+            <h3> Loading...</h3> 
+            }
+            
             </React.Fragment>
         )
     }

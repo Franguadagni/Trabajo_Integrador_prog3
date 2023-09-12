@@ -44,13 +44,18 @@ class Valoradas extends Component{
             <React.Fragment>
             <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
             <Filtro filtrar={(texto) => this.filtrarPeliculas(texto)}/>
+            {
+                this.state.pelisTopRated.length >0?
             <section className="pelisvaloradas">
                 {
                     this.state.pelisTopRated.map(
                         (peli,idx) => <Tarjeta key={peli + idx} datosPeli={peli}/>
                     )
                 }
-            </section>
+            </section>:
+            <h3>Loading...</h3>
+            }
+            
             <button  onClick={()=>this.traerMas(this.state.pelisTopRated)}className="boton" > Traer más </button>
             </React.Fragment>
         )

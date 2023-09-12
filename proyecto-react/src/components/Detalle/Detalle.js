@@ -29,9 +29,15 @@ class Detalle extends Component{
 
     render(){    
         return(
-           <section className='infopelicula'>
-            <TarjetaDetalle detallePeli={this.state.detallePeli} generos={this.state.generos}/>
-           </section>
+            <React.Fragment>
+            {
+                this.state.detallePeli.length >0?
+            <section className='infopelicula'>
+                <TarjetaDetalle detallePeli={this.state.detallePeli} generos={this.state.generos}/>
+            </section>:
+            <h3>Loading...</h3>
+            }
+             </React.Fragment>
         )
     }
 }
