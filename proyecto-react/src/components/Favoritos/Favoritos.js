@@ -33,9 +33,9 @@ class Favoritos extends Component {
     render() {
         return (
             <React.Fragment>
-                <h2 class="titulohp">Favoritos</h2>
-                <section class="searchresults">
-                    <div class="fondodrama">
+                <h2 className="titulohp">Favoritos</h2>
+                <section className="searchresults">
+                    <div className="fondodrama">
                         {this.state.favs.map(
                             (peliFav, idx) => <Tarjeta key={peliFav + idx} datosPeli={peliFav} />
                         )}

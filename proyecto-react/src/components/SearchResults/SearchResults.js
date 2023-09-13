@@ -21,12 +21,12 @@ class SearchResults extends Component{
     render(){    
         return(
           <React.Fragment>
-            <h2 class="titulohp">Resultados de Busqueda</h2> 
-            <div class="fondodrama">  
+            <h2 className="titulohp">Resultados de Busqueda</h2> 
+            <div className="fondodrama">  
             {
                 this.state.peliBuscada.length >0?
                 
-            <section class="searchresults">
+            <section className="searchresults">
                 
                 {
                     this.state.peliBuscada.slice(0,12).map(

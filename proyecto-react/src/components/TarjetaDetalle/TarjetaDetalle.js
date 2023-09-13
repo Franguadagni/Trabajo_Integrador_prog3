@@ -42,7 +42,7 @@ class TarjetaDetalle extends Component{
 
             //Mostrarle un cambio al usuario en la pantalla.
             this.setState({
-                textoBoton : "Agregar a favoritos"
+                textoBoton : "Agrear a favoritos"
             })
 
         } else {
