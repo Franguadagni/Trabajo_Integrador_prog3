@@ -72,7 +72,7 @@ class TarjetaDetalle extends Component{
             <ul>
                 <li><strong className="info">Calificacion:</strong> {this.props.detallePeli.vote_average} </li>
                 <li ><strong className="info"> Fecha de estreno: </strong>{this.props.detallePeli.release_date}</li>
-                <li className="infogen1"><strong className="info">Generos:{this.props.generos}</strong></li> 
+                <li ><strong className="info">Generos:</strong> {this.props.generos.join(', ')}</li> 
                 <li><strong className="info"> Duracion:</strong> {this.props.detallePeli.runtime}</li>
              </ul>
              <button className="botonfav" onClick={()=>this.agergarYSacarDeFavs(this.props.detallePeli.id)} type="button">

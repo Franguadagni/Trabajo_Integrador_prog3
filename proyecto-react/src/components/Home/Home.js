@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import "./home.css";
 import Tarjeta from '../Tarjeta/Tarjeta';
+import { Link } from 'react-router-dom';
 
 class Home extends Component {
     constructor() {
@@ -33,7 +34,7 @@ class Home extends Component {
         console.log(this.setState.pelisTopRated)
         return (
             <React.Fragment>
-                <h2 className="tipodepalabra2">Peliculas Populares</h2>
+                <h2 className="tipodepalabra2"><Link to='/populares' className='ver-todas-link'> Peliculas Populares </Link> </h2>
                 {
                     this.state.pelisPopulares.length >0?
                     <section className="seriespopulares">
@@ -45,7 +46,7 @@ class Home extends Component {
                 </section>:
                 <h3> Loading...</h3>
             }
-            <h2 className="tipodepalabra2">Peliculas mas valoradas</h2>
+            <h2 className="tipodepalabra2"><Link to='/valoradas' className='ver-todas-link'> Peliculas más valoradas </Link> </h2>
             {
                 this.state.pelisTopRated.length >0?
                 <section className="pelisvaloradas">

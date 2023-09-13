@@ -15,28 +15,21 @@ class Detalle extends Component{
             .then( res => res.json())
             .then( data => this.setState({
                 detallePeli: data,
-            }))
-            .catch( error => console.log(error))
+                generos: data.genres.map(genre => genre.name) // Mapea para obtener solo los nombres
 
-        fetch(``)
-            .then( res => res.json())
-            .then( data => this.setState({
-                generos: data,
             }))
             .catch( error => console.log(error))
         
     }
 
-    render(){    
+    render(){ 
+        console.log(this.state.generos)   
         return(
             <React.Fragment>
-            {
-                this.state.detallePeli.length >0?
+        
             <section className='infopelicula'>
                 <TarjetaDetalle detallePeli={this.state.detallePeli} generos={this.state.generos}/>
-            </section>:
-            <h3>Loading...</h3>
-            }
+            </section>
              </React.Fragment>
         )
     }
